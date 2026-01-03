@@ -1,21 +1,14 @@
 
 
 const App = () => {
-  const products = [
-    {title: "Chou", id: 1},
-    {title: "Ail", id: 2},
-    {title: "Legume", id: 3},
-  ]
-  const listItems = products.map((product) => (
-    <li key={product.id}>
-      {product.title}
-    </li>
-  ))
+  function handleClick() {
+    return alert('Button clicked!');
+  }
   return (
     <div>
-       <ul>
-        {listItems}
-       </ul>
+       <button onClick={handleClick}>
+        Clique ici
+       </button>
     </div>
   )
 }
