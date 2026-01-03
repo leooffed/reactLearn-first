@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
-  const user = {
-    name: 'John Doe',
-    imageUrl: 'https://i.imgur.com/MK3eW3As.jpg',
-    imageSize: 90,
-  }
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     <div>
-      <h1>{user.name}</h1>
-      <img 
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />
+      {
+        isLoggedIn ? (
+          <div>
+            <h1>Welcome Back!</h1>
+            <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+          </div>
+        ) : (
+          <div>
+            <h1>Please Log In</h1>
+            <button onClick={() => setIsLoggedIn(true)}>Login</button>
+          </div>
+        )
+      }
     </div>
   )
 }
