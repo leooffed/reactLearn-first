@@ -1,22 +1,21 @@
-import React, { useState } from 'react'
+
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const products = [
+    {title: "Chou", id: 1},
+    {title: "Ail", id: 2},
+    {title: "Legume", id: 3},
+  ]
+  const listItems = products.map((product) => (
+    <li key={product.id}>
+      {product.title}
+    </li>
+  ))
   return (
     <div>
-      {
-        isLoggedIn ? (
-          <div>
-            <h1>Welcome Back!</h1>
-            <button onClick={() => setIsLoggedIn(false)}>Logout</button>
-          </div>
-        ) : (
-          <div>
-            <h1>Please Log In</h1>
-            <button onClick={() => setIsLoggedIn(true)}>Login</button>
-          </div>
-        )
-      }
+       <ul>
+        {listItems}
+       </ul>
     </div>
   )
 }
